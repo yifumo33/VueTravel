@@ -8,13 +8,17 @@ import 'style/reset.css'
 import 'style/border.css'
 // 1像素边框
 import fastClick from 'fastClick'
-// 300毫秒延迟点击
-fastClick.attach(document.body)
-
 import 'style/iconfont.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+// require styles
+import 'swiper/dist/css/swiper.css'
+// 300毫秒延迟点击
 
 
 
+
+Vue.use(VueAwesomeSwiper)
+fastClick.attach(document.body)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
