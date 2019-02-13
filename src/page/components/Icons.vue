@@ -1,6 +1,6 @@
 <template>
-	<div class="icons">
-		<swiper>
+	<div class="icons" >
+		<swiper :options="swiperOption">
 			<swiper-slide v-for="(page,index) in pages" :key="index">	
 				<div class="icon-line">
 					<div class="icon"   v-for="(item,index) in page" :key="item.id">
@@ -22,6 +22,10 @@
 		},
 		data(){
 			return{
+				swiperOption:{
+					pagination:".swiper-pagination",
+					loop:true
+				},
 				iconList:[{
 					id:"001",
 					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
