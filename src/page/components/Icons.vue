@@ -1,11 +1,11 @@
 <template>
 	<div class="icons" >
 		<swiper :options="swiperOption">
-			<swiper-slide v-for="(page,index) in pages" :key="index">	
+			<swiper-slide v-for="(page,index) in pages" :key="index" >	
 				<div class="icon-line">
-					<div class="icon"   v-for="(item,index) in page" :key="item.id">
+					<div class="icon"   v-for="(item,index) in page" :key="item.id" v-if="list.length">
 						<img :src="item.imgUrl" >
-						<p>{{item.des}}</p>
+						<p>{{item.desc}}</p>
 					</div>
 				</div>		
 			</swiper-slide>
@@ -20,90 +20,26 @@
 		methods:{
 	
 		},
+		props:{
+			list:Array
+		},
 		data(){
 			return{
 				swiperOption:{
-					pagination:".swiper-pagination",
-					loop:true
-				},
-				iconList:[{
-					id:"001",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"002",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"003",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"004",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"005",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"006",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"007",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"008",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"009",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"010",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"011",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"012",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"013",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"014",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"015",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				},{
-					id:"016",
-					imgUrl:"https://i.loli.net/2019/02/12/5c62808f3bc51.png",
-					des:"钱包"
-				}]
+					pagination:".swiper-pagination"
+				}
 			}
 		},
 		computed:{
 			pages () {
 				const pages = []
-				this.iconList.forEach((item,index)=>{
+				this.list.forEach((item,index)=>{
 					const page = Math.floor(index / 8)
 
 					if(!pages[page]){
 						pages[page]=[]
 					}
 
-					console.log(page + ">>>>" + index)
 
 					pages[page].push(item)
 				})
@@ -117,8 +53,11 @@
 	@import '~style/mixins.styl'
 	.icon-line
 		.icon
+			box-sizing:border-box
+			padding:.1rem
 			float:left
 			width:25%
+			height:2.2rem
 			img
 				width:100%
 			p 

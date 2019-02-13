@@ -2,7 +2,7 @@
 	<div>
 		<div class="recommend-title">周末去哪儿</div>
 		<ul>
-			<li class="item" v-for="item in recommendList"   border :key="item.id">
+			<li class="item" v-for="item in list"   border :key="item.id">
 				
 				<img   :src="item.imgUrl" class="item-img">					
 				
@@ -19,27 +19,12 @@
 <script>
 	export default{
 		name:"HomeWeekend",
+		props:{
+			list:Array
+		},
 		data(){
 			return{
-				recommendList:[{
-					id:'001',
-					imgUrl:"http://img1.qunarzz.com/sight/p0/1508/2e/d9363ce50a88c8c5ff5a138c67687cd4.water.jpg_r_800x800_645880a7.jpg",
-					title:"深圳野生动物园(AAAA景区)",
-					desc:"与大自然零距离接触"
 
-				},{
-					id:'002',
-					imgUrl:"http://img1.qunarzz.com/sight/p0/1901/a6/a6569d2d53c6c637a3.water.jpg_r_800x800_c87a4c30.jpg",
-					title:"东部华侨城茶溪谷",
-					desc:"喝喝茶"
-
-				},{
-					id:'003',
-					imgUrl:"http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_r_800x800_25544683.jpg",
-					title:"深圳小梅沙海洋世界",
-					desc:"小海豚在等着你"
-
-				}]
 			}
 		}
 	}

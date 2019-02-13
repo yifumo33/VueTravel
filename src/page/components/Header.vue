@@ -7,15 +7,18 @@
 			<span class="iconfont">&#xe632;输入城市\景点\主题</span>
 		</div>
 		<div class="header-right">
-			城市<span class="iconfont arrowicon">&#xe64a;</span>
+			{{this.city}}<span class="iconfont arrowicon">&#xe64a;</span>
 		</div>
 	</div>
 </template>
 
 <script>
 	export default{
-	name:"Header"
+	name:"Header",
+	props:{
+		city:String
 	}
+}
 </script>
 
 <!-- 加上scoped 会使样式只在该组件中有效 -->

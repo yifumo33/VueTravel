@@ -2,7 +2,7 @@
 	<div>
 		<div class="recommend-title">热销推荐</div>
 		<ul>
-			<li class="item" v-for="item in recommendList"   border :key="item.id">
+			<li class="item" v-for="item in list"   border :key="item.id">
 				
 					<img   :src="item.imgUrl" class="item-img">
 				
@@ -19,27 +19,12 @@
 <script>
 	export default{
 		name:"HomeRecommend",
+		props:{
+			list:Array
+		},
 		data(){
 			return{
-				recommendList:[{
-					id:'001',
-					imgUrl:"https://img1.qunarzz.com/p/tts7/1809/b8/bb9c4c34be421802.jpg_r_240x160x90_c114072e.jpg",
-					title:"俄罗斯+阿塞拜疆2国10日游",
-					desc:"感受斯拉夫民族的热情"
-
-				},{
-					id:'002',
-					imgUrl:"https://img1.qunarzz.com/p/tts7/1811/6c/74e73162401a8b02.jpg_r_240x160x90_32a723f7.jpg",
-					title:"日本东京大阪经典7日+海航直飞+自由活动",
-					desc:"感受东瀛日本的风土人情"
-
-				},{
-					id:'003',
-					imgUrl:"https://img1.qunarzz.com/vs_ceph_vs_tts/78f74518-64bd-4f82-a542-1e89344bee9a.jpg_r_240x160x90_0854e2e5.jpg",
-					title:"错峰推荐！一价全含❀德法意瑞12-13天双宫+双游船",
-					desc:"欧洲浪漫情怀之旅 感受文艺复兴的辉煌时代"
-
-				}]
+			
 			}
 		}
 	}
