@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Home from '@/page/home'
-import List from '@/page/list'
+import City from '@/page/city'
 
  // @指src
 
@@ -15,9 +15,9 @@ export default new Router({
       name: 'Home',
       component: Home
     },{
-      path: '/list',
-      name: 'List',
-      component: List
+      path: '/city',
+      name: 'City',
+      component: City
     }
 
   ]
