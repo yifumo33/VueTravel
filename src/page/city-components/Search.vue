@@ -11,7 +11,7 @@
 </script>
 
 
-<style lang="stylus" scoped="">
+<style lang="stylus" scoped>
 	@import '~style/varibles.styl'
 		.search
 			padding:.2rem
