@@ -57,10 +57,11 @@
 			padding:.1rem
 			float:left
 			width:25%
-			height:2.2rem
+		
 			img
 				width:100%
 			p 
+				margin-top:.2rem
 				text-align:center	
 				color:#ccc
 				ellipsis()
