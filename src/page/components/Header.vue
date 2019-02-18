@@ -8,19 +8,22 @@
 		</div>
 		<router-link to='/city'>	
 			<div class="header-right">
-				{{this.city}}<span class="iconfont arrowicon">&#xe64a;</span>
+				{{this.$store.state.city}}<span class="iconfont arrowicon">&#xe64a;</span>
 			</div>
 		</router-link>
 	</div>
 </template>
 
 <script>
+	import { mapState,mapGetters } from 'vuex'
 	export default{
 	name:"Header",
-	props:{
-		city:String
+	computed:{
+		...mapState(['city']),
+		...mapGetters(['doubleCity'])
 	}
-}
+
+}	
 </script>
 
 <!-- 加上scoped 会使样式只在该组件中有效 -->
@@ -49,7 +52,8 @@
 			padding-left:.2rem
 			color:#ccc
 		.header-right
-			width:1.24rem
+			min-width:1.04rem
+			padding:0 .1rem
 			float:right
 			text-align:center
 			color:#fff

@@ -13,7 +13,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 // require styles
 import 'swiper/dist/css/swiper.css'
 // 300毫秒延迟点击
-
+import store from './store/index.js'
 
 
 
@@ -26,6 +26,7 @@ new Vue({
   el: '#app',
   router,
   // 等于 router:router
+  store,
   components: { App },
   template: '<App/>'
 })

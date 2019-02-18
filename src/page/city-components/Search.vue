@@ -5,7 +5,11 @@
 		</div>
 		<div class="search-content" ref="search" v-show="keyword">
 				<ul>
-					<li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+					<li class="search-item border-bottom" 
+						v-for="item of list" 
+						:key="item.id"
+						@click="handleCityClick(item.name)"
+						>{{item.name}}</li>
 					<li class="search-item border-bottom" v-show="hasNodata">没有找到匹配数据</li>	
 				</ul>
 		</div>
@@ -14,6 +18,7 @@
 
 <script>
 	import Bscroll from 'better-scroll'
+
 	export default{
 		name:"CitySearch",
 		props:{
@@ -29,6 +34,12 @@
 		computed:{
 			hasNodata(){
 				return !this.list.length
+			}
+		},
+		methods:{
+				handleCityClick(city){
+				this.$store.commit('changeCity',city)
+				this.$router.push('/')
 			}
 		},
 		watch:{
@@ -78,8 +89,7 @@
 				box-sizing:border-box
 				padding:0 .2rem
 				color:#666
-		.search-content
-			
+		.search-content	
 			z-index:1
 			position:absolute
 			overflow:hidden
