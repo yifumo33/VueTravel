@@ -1,6 +1,14 @@
 <template>
 	<ul class="list">
-		<li class="item" v-for="(item,key) in cities" :key="key">{{key}}</li>
+		<li class="item" v-for="item in letters"
+		 @click="handleLetterClick"
+		 :ref = "item"
+		 @touchstart="handleTouchStart"
+		 @touchmove="handleTocuhMove"	
+		 @touchend="handleTouchEnd"
+		 >
+			{{item}}
+		</li>
 	</ul>
 </template>
 
@@ -9,6 +17,51 @@
 		name:"CityAlphabet",
 		props:{
 			cities:Object
+		},
+		computed:{
+			letters(){
+				const letters = []
+				for(let i in this.cities){
+					letters.push(i)
+				}
+				return letters
+			}
+		},
+		data(){
+			return{
+				touchStatus:false,
+				startY:0,
+				timer:null
+			}
+		},
+		updated (){
+			this.startY = this.$refs['A'][0].offsetTop
+		},
+		methods:{
+			handleLetterClick(e){
+				this.$emit("change",e.target.innerText)
+			},
+			handleTouchStart(){
+				this.touchStatus = true
+			},
+			handleTocuhMove(e){
+				var _this = this
+				if(this.touchStatus){	
+					if(this.timer){
+						clearTimeout(this.timer)
+					}
+					this.timer = setTimeout(()=>{
+						const touchY = e.touches[0].clientY - 104
+					    const index =  Math.floor((this.startY - touchY) / 25) == 0 ? 0 : - Math.floor((this.startY - touchY) / 25)
+						this.$emit('change',this.letters[index])
+					},16)
+					
+					
+				}	
+			},
+			handleTouchEnd(){
+				this.touchStatus = false
+			}
 		}
 	}
 </script>
@@ -25,7 +78,9 @@
 	    bottom: 0
 	    width: .4rem
 	    .item
+	      
 	      line-height: .4rem
 	      text-align: center
+	      margin-top:.1rem
 	      color: $bgColor
 </style>
