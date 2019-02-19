@@ -47,8 +47,13 @@
 				}
 			}
 		},
-		mounted (){
+		activated(){
 			window.addEventListener('scroll',this.handleSrcoll)
+
+		},
+
+		deactivated(){
+			window.removeEventListener('scroll',this.handleSrcoll)
 		}
 	}
 </script>
