@@ -72,6 +72,7 @@
 			font-size:.4rem
 			
 	.header-fixed
+		z-index:2
 		position:fixed
 		height:$headerHeight
 		line-height:$headerHeight
