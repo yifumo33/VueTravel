@@ -30,7 +30,7 @@
 		},
 		methods:{
 			getDetailInfo(){
-				axios.get('VueTravel/static/mock/detail.json',{
+				axios.get('/detail.json',{
 					params:{
 						id:this.$route.params.id
 					}
