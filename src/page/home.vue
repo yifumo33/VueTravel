@@ -28,7 +28,7 @@
 		},
 		methods:{
 			getHomeInfo(){
-				axios.get('/static/mock/index.json').then(this.getHomeInfoSucc)
+				axios.get('VueTravel/static/mock/index.json').then(this.getHomeInfoSucc)
 			},
 			getHomeInfoSucc(res){
 				this.city = res.data.city
