@@ -31,7 +31,7 @@
 		 },
 		 methods:{
 		 	getCityInfo(){
-		 		axios.get('/city.json').then(this.handleGetCityInfoSucc)
+		 		axios.get('VueTravel/dist/city.json').then(this.handleGetCityInfoSucc)
 		 	},
 		 	handleGetCityInfoSucc(res){
 		 		res = res.data
